@@ -10,8 +10,7 @@ processo seletivo
 <p align="center">🚀 API REST CRUD</p>
 
 <!--ts-->
-   * [Sobre](#Sobre)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
+ 
    * [Instalação](#instalacao)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
@@ -22,3 +21,5 @@ processo seletivo
    * [Tests](#testes)
    * [Tecnologias](#tecnologias)
 <!--te-->
+
+#instalacao npm install
