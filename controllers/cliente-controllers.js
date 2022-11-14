@@ -1,6 +1,6 @@
 const mysql = require('../mysql');
 
-//insere  pessoas na equipe para receber valores
+//insere  clientes
 exports.postInsereCliente = async (req, res, next) => {
     try {
         const query = "INSERT INTO clientes (id_cliente, nome, sobre_nome, cpf, nome_mae, cep, logradouro, bairro, localidade, estado, numero) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -55,7 +55,7 @@ exports.getClientes = async (req, res, next) => {
             quantidade: result.length,
 
             clientes: result.map(client => {
-             return {
+                return {
                     id_cliente: client.id_cliente,
                     nome: client.nome,
                     sobre_nome: client.sobre_nome,
@@ -77,7 +77,7 @@ exports.getClientes = async (req, res, next) => {
         return res.status(200).send(response)
 
     } catch (error) {
-        console.error(error) 
+        console.error(error)
         return res.status(500).send({ error: error })
     }
 
@@ -101,15 +101,15 @@ exports.getListaUmCliente = async (req, res, next) => {
                 nome: result[0].nome,
                 sobre_nome: result[0].sobre_nome,
                 cpf: result[0].cpf,
-                nome_mae:result[0].nome_mae,
+                nome_mae: result[0].nome_mae,
                 cep: result[0].cep,
                 logradouro: result[0].logradouro,
                 bairro: result[0].bairro,
-                numero:result[0].numero,
+                numero: result[0].numero,
                 request: {
                     tipo: 'GET',
                     descricao: 'Retorna um cliente específico '
-                   
+
                 }
 
             }
