@@ -134,7 +134,7 @@ exports.deleteDeletaUmCliente = async (req, res, next) => {
             request: {
                 tipo: 'POST',
                 descricao: 'INSERE UM CLIENTE',
-                url: 'http://localhost:3000/create',
+                url: 'http://localhost:8000/create',
                 body: {
                     id_cliente: result,
                 }
