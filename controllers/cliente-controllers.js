@@ -65,6 +65,7 @@ exports.getClientes = async (req, res, next) => {
                     logradouro: client.logradouro,
                     bairro: client.bairro,
                     numero: client.numero,
+                    localidade:client.localidade,
                     request: {
                         tipo: 'GET',
                         descricao: '',
