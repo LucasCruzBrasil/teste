@@ -7,7 +7,7 @@ exports.obrigatorio = (req, res, next) => {
         req.usuario = decode;
         next();
     } catch (error) {
-        return res.status(401).send({ mensagem: 'Falha na autentificação' })
+        return res.status(401).send({ mensagem: 'Falha na autentificação, necessário fazer o login' })
     }
 }
 
