@@ -24,9 +24,12 @@ exports.cadastrarUsuario = (req, res, next) => {
                     id_usuario: results.insertId,
                     email: req.body.email,
                     nome:req.body.nome
+                  
                   }
   
                 }
+
+               
                 return res.status(201).send(response);
   
               })
