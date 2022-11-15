@@ -3,7 +3,7 @@ const mysql = require('../mysql');
 //insere  clientes
 exports.postInsereCliente = async (req, res, next) => {
     try {
-        const query = "INSERT INTO clientes (id_cliente, nome, sobre_nome, cpf, nome_mae, cep, logradouro, bairro, localidade, estado, numero) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        const query = "INSERT INTO clientes (id_cliente, nome, sobre_nome, cpf, nome_mae, cep, logradouro, bairro, localidade, uf, numero) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         const result = await mysql.execute(query, [
             req.body.id_cliente,
             req.body.nome,
@@ -14,7 +14,7 @@ exports.postInsereCliente = async (req, res, next) => {
             req.body.logradouro,
             req.body.bairro,
             req.body.localidade,
-            req.body.estado,
+            req.body.uf,
             req.body.numero,
 
         ]);
@@ -31,7 +31,7 @@ exports.postInsereCliente = async (req, res, next) => {
             logradouro: req.body.logradouro,
             bairro: req.body.bairro,
             localidade: req.body.localidade,
-            estado: req.body.estado,
+            uf: req.body.uf,
             numero: req.body.numero,
 
 
@@ -66,6 +66,7 @@ exports.getClientes = async (req, res, next) => {
                     bairro: client.bairro,
                     numero: client.numero,
                     localidade:client.localidade,
+                    uf:client.uf,
                     request: {
                         tipo: 'GET',
                         descricao: '',
@@ -97,7 +98,7 @@ exports.getListaUmCliente = async (req, res, next) => {
             })
         }
         const response = {
-            valores: {
+            clientes: {
                 id_cliente: result[0].id_cliente,
                 nome: result[0].nome,
                 sobre_nome: result[0].sobre_nome,
@@ -107,6 +108,7 @@ exports.getListaUmCliente = async (req, res, next) => {
                 logradouro: result[0].logradouro,
                 bairro: result[0].bairro,
                 numero: result[0].numero,
+                uf:result[0].uf,
                 request: {
                     tipo: 'GET',
                     descricao: 'Retorna um cliente específico '
@@ -170,7 +172,7 @@ exports.updateCliente = async (req, res, next) => {
       logradouro = ?,
       bairro = ?,
       localidade = ?, 
-      estado = ?,
+      uf = ?,
       numero = ?
       WHERE id_cliente= ?`;
 
@@ -183,7 +185,7 @@ exports.updateCliente = async (req, res, next) => {
             req.body.logradouro,
             req.body.bairro,
             req.body.localidade,
-            req.body.estado,
+            req.body.uf,
             req.body.numero,
             req.body.id_cliente
 
@@ -201,7 +203,7 @@ exports.updateCliente = async (req, res, next) => {
                 logradouro: req.body.logradouro,
                 bairro: req.body.bairro,
                 localidade: req.body.localidade,
-                estado: req.body.estado,
+                uf: req.body.uf,
                 numero: req.body.numero,
 
                 request: {
